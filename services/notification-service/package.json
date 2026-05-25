@@ -19,7 +19,8 @@
     "amqplib": "^0.10.3",
     "prom-client": "^15.1.0",
     "jaeger-client": "^3.19.0",
-    "opentracing": "^0.14.7"
+    "opentracing": "^0.14.7",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
