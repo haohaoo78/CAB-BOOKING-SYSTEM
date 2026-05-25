@@ -2,20 +2,15 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+COPY services/auth-service/package*.json ./
+RUN npm install --omit=dev
 
-# Install dependencies
-RUN npm ci --only=production
+COPY services/auth-service/ .
+COPY shared/ /shared/
 
-# Copy application code
-COPY . .
-
-# Create logs directory
+ENV NODE_PATH=/app/node_modules
 RUN mkdir -p logs
 
-# Expose port
 EXPOSE 3001
 
-# Start application
 CMD ["node", "server.js"]

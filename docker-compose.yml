@@ -154,7 +154,7 @@ services:
     image: grafana/grafana:latest
     container_name: cab-grafana
     ports:
-      - "3001:3000"
+      - "3100:3000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin123
       - GF_USERS_ALLOW_SIGN_UP=false
@@ -185,8 +185,8 @@ services:
   # Auth Service
   auth-service:
     build:
-      context: ./services/auth-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/auth-service/Dockerfile
     container_name: cab-auth-service
     ports:
       - "3001:3001"
@@ -217,8 +217,8 @@ services:
   # Booking Service
   booking-service:
     build:
-      context: ./services/booking-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/booking-service/Dockerfile
     container_name: cab-booking-service
     ports:
       - "3002:3002"
@@ -249,8 +249,8 @@ services:
   # Driver Service
   driver-service:
     build:
-      context: ./services/driver-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/driver-service/Dockerfile
     container_name: cab-driver-service
     ports:
       - "3003:3003"
@@ -279,8 +279,8 @@ services:
   # Payment Service
   payment-service:
     build:
-      context: ./services/payment-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/payment-service/Dockerfile
     container_name: cab-payment-service
     ports:
       - "3004:3004"
@@ -309,8 +309,8 @@ services:
   # Notification Service
   notification-service:
     build:
-      context: ./services/notification-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/notification-service/Dockerfile
     container_name: cab-notification-service
     ports:
       - "3005:3005"
@@ -336,8 +336,8 @@ services:
   # Location Service
   location-service:
     build:
-      context: ./services/location-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: services/location-service/Dockerfile
     container_name: cab-location-service
     ports:
       - "3006:3006"
@@ -361,8 +361,8 @@ services:
   # API Gateway
   api-gateway:
     build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: api-gateway/Dockerfile
     container_name: cab-api-gateway
     ports:
       - "8000:8000"
@@ -389,8 +389,8 @@ services:
   # Frontend
   frontend:
     build:
-      context: ./frontend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: frontend/Dockerfile
     container_name: cab-frontend
     ports:
       - "3000:3000"
